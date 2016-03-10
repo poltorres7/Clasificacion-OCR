@@ -4,6 +4,7 @@ from PIL import Image
 import matplotlib.image as mpimg
 import csv
 import os
+from colorama import Fore
 cont = 1
 
 class CreaData():
@@ -152,12 +153,12 @@ class CreaData():
         for base, dirs, files in os.walk('C:/Users/Paul/Desktop/OCR/ocrP/data'):       
             #print(base)
             if cont > 0:
-                print("Obteniendo caracteristicas de: " + str(base[len(base)-1]))
+                print(Fore.BLUE+"    Obteniendo caracteristicas de: "+ Fore.BLACK+ str(base[len(base)-1]))
                 for name in files:
                     CreaData.analisis((str(base)+'/'+name),base[len(base)-1])
             cont += 1
         CreaData.op.close()#se cierra la escritura
-        print("     Proceso finalizado!")
+        print(Fore.MAGENTA+"     Proceso finalizado!")
     def __init__(self):
         pass
     
